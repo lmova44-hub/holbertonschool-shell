@@ -4,3 +4,6 @@ Bu qovluq "Shell Initialization Files, Variables and Expansions" layihəsinin ta
 
 ## 0-alias
 Bu skript `ls` üçün `rm -f *` dəyəri ilə bir alias yaradır.
+
+## 1-hello_you
+Bu skript `hello user` formatında cari Linux istifadəçisinin adını çap edir.
