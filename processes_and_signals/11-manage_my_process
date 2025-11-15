@@ -6,7 +6,7 @@ SCRIPT_DIR="$(dirname "$0")"
 
 case "$1" in
     start)
-        /bin/bash "$SCRIPT_DIR/manage_my_process" &
+        "$SCRIPT_DIR/manage_my_process" &
         echo "$!" > "$PID_FILE"
         echo "manage_my_process started"
         ;;
@@ -22,7 +22,7 @@ case "$1" in
             kill "$(< "$PID_FILE")" 2>/dev/null
             rm -f "$PID_FILE"
         fi
-        /bin/bash "$SCRIPT_DIR/manage_my_process" &
+        "$SCRIPT_DIR/manage_my_process" &
         echo "$!" > "$PID_FILE"
         echo "manage_my_process restarted"
         ;;
