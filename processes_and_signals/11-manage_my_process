@@ -2,10 +2,11 @@
 # This script manages the manage_my_process daemon with start, stop and restart commands
 
 PID_FILE="/var/run/my_process.pid"
+SCRIPT_DIR="$(dirname "$0")"
 
 case "$1" in
     start)
-        /bin/bash ./manage_my_process &
+        /bin/bash "$SCRIPT_DIR/manage_my_process" &
         echo "$!" > "$PID_FILE"
         echo "manage_my_process started"
         ;;
@@ -21,7 +22,7 @@ case "$1" in
             kill "$(< "$PID_FILE")" 2>/dev/null
             rm -f "$PID_FILE"
         fi
-        /bin/bash ./manage_my_process &
+        /bin/bash "$SCRIPT_DIR/manage_my_process" &
         echo "$!" > "$PID_FILE"
         echo "manage_my_process restarted"
         ;;
